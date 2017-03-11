@@ -5,6 +5,7 @@
  */
 package ru.waytosky;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.Persistence;
@@ -21,6 +22,6 @@ public class Main {
             properties.put("javax.persistence.jdbc.password", "star");
         ChatMessageJpaController controller= new ChatMessageJpaController(
                 Persistence.createEntityManagerFactory("PUnit",properties));
-        controller.create(new ChatMessage("jpa being added record"));
+        controller.create(new ChatMessage("jpa being added record " + (new Date())));
     }
 }
