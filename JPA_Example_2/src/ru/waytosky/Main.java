@@ -5,6 +5,7 @@
  */
 package ru.waytosky;
 
+import java.util.Date;
 import javax.persistence.Persistence;
 
 /**
@@ -12,17 +13,18 @@ import javax.persistence.Persistence;
  * @author Ayrat
  */
 public class Main {
-    
+
     public static void main(String[] args) {
-            
-        MessageJpaController controller= new MessageJpaController(
+
+        MessageJpaController controller = new MessageJpaController(
                 Persistence.createEntityManagerFactory("PUnit"));
-        try{
-            Message m=new Message();
-            m.setMessage("jpa being added record");
-        controller.create(m);
-        }catch(Exception e){
-            System.out.println(e.getClass().toString()+" : "+e.getMessage());
+        try {
+//            Message m=new Message();
+//            m.setMessage("jpa being added record");
+//        controller.create(m);
+            controller.create(new Message("jpa being added record"+(new Date())));
+        } catch (Exception e) {
+            System.out.println(e.getClass().toString() + " : " + e.getMessage());
         }
     }
 }

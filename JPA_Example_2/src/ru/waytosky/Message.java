@@ -40,9 +40,9 @@ public class Message implements Serializable {
     public Message() {
     }
     
-//    public Message(String message) {
-//        this.message=message;
-//    }
+    public Message(String message) {
+        this.message=message;
+    }
 
 //    public Message(Long id) {
 //        this.id = id;
