@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
             
         MessageJpaController controller= new MessageJpaController(
-                Persistence.createEntityManagerFactory("JPA_Example_2PU"));
+                Persistence.createEntityManagerFactory("PUnit"));
         try{
             Message m=new Message();
             m.setMessage("jpa being added record");
