@@ -9,8 +9,10 @@ public class App {
     public static void main(String[] args) throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/devdb"
                 , "dev", "star");
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("select * from courses");
+        String query = "select * from courses";
+        PreparedStatement st = conn.prepareStatement(query);
+        //ResultSet rs = st.executeQuery("select * from courses");
+        ResultSet rs = st.executeQuery();
         while (rs.next()){
             System.out.println(rs.getString(1)+" title: "+rs.getString(2));
         }
