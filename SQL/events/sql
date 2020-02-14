@@ -1,0 +1,11 @@
+
+-- select ev_name, tag_id 
+-- from event ev left join event_tag 
+-- on ev.id = event_id; 
+
+
+select ev_name, tag_id, tag_name 
+from event ev join event_tag 
+on ev.id = event_id
+right 
+join tag t on tag_id = t.id;
