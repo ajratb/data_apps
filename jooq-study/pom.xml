@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>big.air</groupId>
+    <artifactId>jooq-study</artifactId>
+    <version>0.1</version>
+
+    <name>jooq-study</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <db.driver>oracle.jdbc.OracleDriver</db.driver>
+        <db.url>jdbc:oracle:thin:@localbase:1521/srv</db.url>
+        <db.username>user</db.username>
+        <db.password>psw</db.password>
+
+        <org.jooq.version>3.15.0</org.jooq.version>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jooq.pro</groupId>
+                <artifactId>jooq-codegen-maven</artifactId>
+                <version>${org.jooq.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <jdbc>
+                                <driver>${db.driver}</driver>
+                                <url>${db.url}</url>
+                                <user>${db.username}</user>
+                                <password>${db.password}</password>
+                            </jdbc>
+                            <generator>
+                                <database>
+                                    <name>org.jooq.meta.oracle.OracleDatabase</name>
+                                    <schemata>
+                                        <schema>
+                                            <inputSchema>PLM_GATE</inputSchema>
+                                        </schema>
+                                    </schemata>
+                                    <includes>.*</includes>
+                                    <excludes></excludes>
+                                </database>
+                                <target>
+                                    <packageName>test</packageName>
+                                    <directory>target/generated-sources/jooq</directory>
+                                </target>
+                            </generator>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.4</version>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.jooq.pro</groupId>-->
+        <!--            <artifactId>jooq</artifactId>-->
+        <!--            <version>${org.jooq.version}</version>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.jooq</groupId>-->
+        <!--            <artifactId>jooq-meta</artifactId>-->
+        <!--            <version>${org.jooq.version}</version>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.jooq</groupId>-->
+        <!--            <artifactId>jooq-codegen</artifactId>-->
+        <!--            <version>${org.jooq.version}</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
