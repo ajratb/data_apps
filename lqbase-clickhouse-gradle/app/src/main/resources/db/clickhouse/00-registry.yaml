@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/clickhouse/01-db-dummy.sql
+  - include:
+      file: db/clickhouse/02-table-dummytable.sql

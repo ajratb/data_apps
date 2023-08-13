@@ -17,11 +17,15 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'com.clickhouse:clickhouse-jdbc:0.4.6'
+    implementation 'org.liquibase:liquibase-core:4.23.1'
+//    implementation fileTree(dir: 'lib', include: '*.jar')
+    implementation 'com.mediarithmics:liquibase-clickhouse:0.7.2'
+    implementation 'org.lz4:lz4-java:1.8.0'
+
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
-
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:31.1-jre'
 }
 
 application {
